@@ -1,5 +1,3 @@
-// Copyright © ThroughPuter, Inc. Confidential and proprietary. Patents issued and pending. All rights reserved.
-
 // JavaScript API to utilize the ThroughPuter Estimator microservice.
 
 // An object interfacing with an Estimator microservice.

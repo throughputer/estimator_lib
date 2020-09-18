@@ -1,5 +1,3 @@
-// Copyright © ThroughPuter, Inc. Confidential and proprietary. Patents issued and pending. All rights reserved.
-
 // A variant of the Estimator with an API appropriate for making predictions for a next value based on previous values.
 // In other words, the X values are previous Y values.
 
