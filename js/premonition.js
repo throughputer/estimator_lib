@@ -5,7 +5,7 @@
 class Premonition extends Estimator {
   // Args:
   //   depth: Number of values of history to use for the next prediction.
-  //   prob: [true/false] Make probablistic predictions.
+  //   prob: [true/false] Make probabilistic predictions.
   //   websocket_url: URL for websocket connection to Estimator microservice.
   //   cb: Callback function for predictions returning from estimator with args:
   //         estimate: the predicted value (0-255)
@@ -31,6 +31,8 @@ class Premonition extends Estimator {
           ready_cb);
     this.DEPTH = depth;
     this.PROB = prob;
+    this.MIN_VALUE = 0;   // Mim/max value provided/predicted.
+    this.MAX_VALUE = 2;
     // History of past DEPTH values.
     // [0] is earliest.
     this.history = [];
@@ -50,8 +52,18 @@ class Premonition extends Estimator {
         console.log("Error: Premonition: Expect the first send to be a prediction, then alternating between training and prediction.");
         debugger;
       }
+      // Translate values in history to values that span the available 0..255 space for better use of the Estimator.
+      let vars = [];
+      this.history.forEach(function(val) {
+        let mapped_val =
+           val == 0 ? 64 :
+           val == 1 ? 128 :
+           val == 2 ? 192 :
+                      console.log(`History value ${val} is out of range.`);
+        vars.push(mapped_val);
+      });
       let obj = {
-        vars: this.history,
+        vars: vars,
         reset: this.cnt == 0,
         uid: 55,   // All have same UID.
         rid: 33,   // All have same RID.
