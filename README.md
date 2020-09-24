@@ -1,4 +1,4 @@
-# Throughputer Inc. Estimator Microservice User JavaScript Library
+# ThroughPuter, Inc. Estimator Microservice User JavaScript Library
 
 JavaScript Library functions for using the Throughputer Inc. Estimator microservice.
 
