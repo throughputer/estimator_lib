@@ -12,11 +12,11 @@ The file `estimator.js` can be used for direct access to the Estimator microserv
 
 Methods are documented within `estimator.js`.
 
-### Premonition API
+### Predictor API
 
-The file `premonition.js` utilizes `estimator.js` to provide a simpler API for using the Estimator in a mode where the input variables are values from a history.
+The file `predictor.js` utilizes `estimator.js` to provide a simpler API for using the Estimator in a mode where the input variables are values from a history.
 
-Methods are documented within `premonition.js`.
+Methods are documented within `predictor.js`.
 
 # Connecting the Estimator Microservice
 
