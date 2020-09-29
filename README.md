@@ -4,23 +4,19 @@ JavaScript Library functions for using the ThroughPuter, Inc. Estimator microser
 
 ## APIs
 
-Two APIs are provided.
+Two JavaScript APIs are provided to communicate with the Estimator microservice WebSocket. It is also possible to use the WebSocket API directly in any programming languages. These APIs are specified in the accompanying [EstimatorAPI.md](https://github.com/throughputer/estimator_lib), and summarized below.
 
 ### Estimator API
 
 The file `estimator.js` can be used for direct access to the Estimator microservice.
 
-Methods are documented within `estimator.js`.
+### Prediction API
 
-### Predictor API
-
-The file `predictor.js` utilizes `estimator.js` to provide a simpler API for using the Estimator in a mode where the input variables are values from a history.
-
-Methods are documented within `predictor.js`.
+The file `prediction.js` utilizes `estimator.js` to provide a simpler API for using the Estimator in a mode where the input variables are values from a history.
 
 # Connecting the Estimator Microservice
 
-You're [Estimator microservice(s)](https://www.estimatorlab.com) are controlled via your [Estimator Dashboard](https://www.estimatorlab.com). You're application must be connects to a microservice via a WebSocket. The URL for this WebSocket contains a access key that you can obtain via your dashboard. The WebSocket URL containing your access key is a parameter of the Estimator and Promonition JavaScript classes.
+You're [Estimator microservice(s)](https://www.estimatorlab.com) are controlled via your [Estimator Dashboard](https://www.estimatorlab.com). You're application must be connects to a microservice via a WebSocket. The URL for this WebSocket contains a access key that you can obtain via your [Estimator Dashboard](https://www.estimatorlab.com). The WebSocket URL containing your access key is a parameter of the Estimator and Promonition JavaScript classes.
 
 ## Demos
 
