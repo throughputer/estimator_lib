@@ -2,7 +2,7 @@
 // In other words, the X values are previous Y values.
 
 
-class Predictor extends Estimator {
+class Prediction extends Estimator {
   // Args:
   //   depth: Number of values of history to use for the next prediction.
   //   prob: [true/false] Make probabilistic predictions.
@@ -45,11 +45,11 @@ class Predictor extends Estimator {
   _sendObject(train_value) {
     let ret = this.history.length >= this.DEPTH;
     if (ret) {
-      if (this.history.length > this.DEPTH) {console.log("Error: Predictor: Too much data in Predictor history."); debugger;}
+      if (this.history.length > this.DEPTH) {console.log("Error: Prediction: Too much data in Prediction history."); debugger;}
       // Build object to send.
       let train = Number.isInteger(train_value);
       if (((this.cnt % 2) == 1) != train) {
-        console.log("Error: Predictor: Expect the first send to be a prediction, then alternating between training and prediction.");
+        console.log("Error: Prediction: Expect the first send to be a prediction, then alternating between training and prediction.");
         debugger;
       }
       // Translate values in history to values that span the available 0..255 space for better use of the Estimator.
