@@ -52,7 +52,7 @@ An Object sent to the Estimator contains the following fields (with given [bit-r
     - **UID [7:0] <0-127>**: An identifier for the user (currently assigned by the client, but this may be assigned by the server in the future). 
     - **RID [7:0] <0-127>**: A run ID. This has no functional impact, but can be convenient for client bookkeeping. 
     - **Probabilistic <true/false>**
-    - ** Count [15:0] <0-65535>**: A running count within the run. The kernel relies on this value for functional behavior in that: 
+    - **Count [15:0] <0-65535>**: A running count within the run. The kernel relies on this value for functional behavior in that: 
       - FirstObject or a UID value different than that of the previous object notifies the kernel that an object stream independent from the previous stream has begun, causing the kernel to reset its object models. 
       - Probabilistic objects report the top three most likely estimate values along with their Probabilities; otherwise, the kernel will identify just the single most likely estimate value without probabilities. 
 
@@ -92,6 +92,7 @@ sends Objects to the Estimator via the WebSocket as JSON strings representing ob
     “cnt”: <0-65535>
   } 
 } 
+```
 
 The Estimator microservice responds with WebSocket Estimate messages in one of the following two forms:
 
