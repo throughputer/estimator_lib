@@ -131,7 +131,7 @@ The file `estimator.js` provides the `Estimator` class for interfacing with the 
 
   - `websocket_url`: The URL of the WebSocket of the Estimator microservice.
   - `cb`: A callback for Estimates returned by `Estimator.sendObjects(..)` of the form cb(estimate, info), where:
-    - `estimate`: The Estimate response from the Estimator of the form....TBD.
+    - `estimate`: The Estimate response from the Estimator as a JavaScript object corresponding to the JSON `est` value returned by the WebSocket for Non-Probablistic Objects or the `ests` array value for Probablistic Objects.
     - `info`: As provided in `sendObjects(..)`.
   - `ready_cb`: A callback for WebSocket.onopen. 
 
@@ -151,11 +151,7 @@ history of values.
 
   - `depth`: Number of values of history to use for the next prediction.
   - `prob`: `[true/false]` Make probabilistic predictions.
-  - `websocket_url`: The URL of the WebSocket of the Estimator microservice.
-  - `cb`: A callback for Estimates returned by `Estimator.sendObjects(..)` of the form cb(estimate, info), where:
-    - `estimate`: The Estimate response from the Estimator of the form....TBD.
-    - `info`: As provided in `sendObjects(..)`.
-  - `ready_cb`: A callback for WebSocket.onopen.
+  - `websocket_url`, `cb`, `ready_cb`: As in `Estimator`'s constructor, above.
 
 `Prediction.pushValue(val)`: Push an actual value into the history and train the Estimator based on it if there is enough history to do so.
 `predict()`: Predict the next value. Return `true` if an object was sent, or `false` if there is not enough history.
