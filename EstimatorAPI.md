@@ -1,4 +1,6 @@
-# ThroughPuter, Inc. Estimator API 
+# ThroughPuter, Inc. Estimator API
+
+*Copyright © ThroughPuter, Inc. Patents issued and pending. All rights reserved.*
 
 ## Introduction 
 
