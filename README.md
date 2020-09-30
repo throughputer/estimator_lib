@@ -1,5 +1,7 @@
 # ThroughPuter, Inc. Estimator Microservice User JavaScript Library
 
+*Copyright © ThroughPuter, Inc. Patents issued and pending. All rights reserved.*
+
 JavaScript Library functions for using the ThroughPuter, Inc. Estimator microservice.
 
 ## APIs

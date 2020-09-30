@@ -1,10 +1,8 @@
-// Copyright © ThroughPuter, Inc. Patents issued and pending. All rights reserved.
-
 // A variant of the Estimator with an API appropriate for making predictions for a next value based on previous values.
 // In other words, the X values are previous Y values.
 
 
-class Prediction extends Estimator {
+class Premonition extends Estimator {
   // Args:
   //   depth: Number of values of history to use for the next prediction.
   //   prob: [true/false] Make probabilistic predictions.
@@ -47,11 +45,11 @@ class Prediction extends Estimator {
   _sendObject(train_value) {
     let ret = this.history.length >= this.DEPTH;
     if (ret) {
-      if (this.history.length > this.DEPTH) {console.log("Error: Prediction: Too much data in Prediction history."); debugger;}
+      if (this.history.length > this.DEPTH) {console.log("Error: Premonition: Too much data in Premonition history."); debugger;}
       // Build object to send.
       let train = Number.isInteger(train_value);
       if (((this.cnt % 2) == 1) != train) {
-        console.log("Error: Prediction: Expect the first send to be a prediction, then alternating between training and prediction.");
+        console.log("Error: Premonition: Expect the first send to be a prediction, then alternating between training and prediction.");
         debugger;
       }
       // Translate values in history to values that span the available 0..255 space for better use of the Estimator.
