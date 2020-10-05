@@ -24,7 +24,7 @@ This document specifies the interfaces provided to the ThroughPuter Estimator mi
   - **Estimate**: The resulting characterization from the Estimator for an Object. 
   - **Numeric Object**: An Object for which the Training Values in the dataset are numeric. 
   - **Labeled Object**: An Object for which the Training Values in the dataset are label strings. 
-  - **Probabilistic Object**: An Object for which to produce not just a single-value estimate, but several most-probable values with a Probability for each.
+  - **Probabilistic Object**: \[*Note that Probabilistic Objects are not supported in the current Estimator but can be requested from ThroughPuter, Inc.*\] An Object for which to produce not just a single-value estimate, but several most-probable values with a Probability for each.
   It is typical for Numeric Objects to be Non-Probabilistic, and Labeled Objects can be Probabilistic. 
   - **Probability**: For Probabilistic Objects, the likelihood of a given Label being the correct one. 
   - **Batch Estimate**: A bundle of one or more Objects sent and received as a single WebSocket message and processed atomically
