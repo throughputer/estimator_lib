@@ -6,7 +6,7 @@ JavaScript Library functions for using the ThroughPuter, Inc. Estimator microser
 
 ## APIs
 
-Two JavaScript APIs are provided to communicate with the Estimator microservice WebSocket. It is also possible to use the WebSocket API directly in any programming languages. These APIs are specified in the accompanying [EstimatorAPI.md](https://github.com/throughputer/estimator_lib), and summarized below.
+Two JavaScript APIs are provided to communicate with the Estimator microservice WebSocket. It is also possible to use the WebSocket API directly in any programming languages. These APIs are specified in the accompanying [EstimatorAPI.md](https://github.com/throughputer/estimator_lib/blob/master/EstimatorAPI.md), and summarized below.
 
 ### Estimator API
 
