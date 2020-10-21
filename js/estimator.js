@@ -12,9 +12,9 @@ class Estimator extends fpgaServer {
   //       where:
   //          estimate: The Estimate response from the Estimator of the form....TBD.
   //          info: As provided in sendObjects(..).
-  //   ready_cb: A callback for WebSocket.onopen.
+  //   ready_cb: (opt) Callback for websocket ready or set of callbacks as in fpgaServer constructor.
   constructor(websocket_url, cb, ready_cb) {
-    super();
+    super(ready_cb);
     this.wsCb = cb;
 
     // A structure of pending Objects (sent but not received) indexed by `${object.cnt}:${object.prob}:${object.rid}`.
@@ -50,11 +50,6 @@ class Estimator extends fpgaServer {
         console.log(`Failed to parse returned json string: ${msg.data}`);
       }
 
-    }
-    this.ws.onopen = ready_cb;
-    this.ws.onerror = function (err) {
-      console.log(`Websocket error: ${err}`);
-      debugger;
     }
   }
 
