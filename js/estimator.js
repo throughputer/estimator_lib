@@ -12,17 +12,24 @@ class Estimator extends fpgaServer {
   //       where:
   //          estimate: The Estimate response from the Estimator of the form....TBD.
   //          info: As provided in sendObjects(..).
-  //   ready_cb: (opt) Callback for websocket ready or set of callbacks as in fpgaServer constructor.
+  //   ready_cb: (opt) Callback for websocket ready or set of callbacks as in fpgaServer constructor (without onmessage).
   constructor(websocket_url, cb, ready_cb) {
-    super(ready_cb);
+    super();
     this.wsCb = cb;
 
     // A structure of pending Objects (sent but not received) indexed by `${object.cnt}:${object.prob}:${object.rid}`.
     this.pendingObjects = {};
 
-    // Create websocket.
-    this.ws = new WebSocket(websocket_url);
-    this.ws.onmessage = (msg) => {
+    // If ready_cb is a raw function, bundle it as an object of callbacks (either form is permitted as input).
+    function isFunction(functionToCheck) {
+      return functionToCheck && {}.toString.call(functionToCheck) === '[object Function]';
+    }
+    if (isFunction(ready_cb)) {
+      ready_cb = {onopen: ready_cb};
+    }
+
+    // Provide onmessage callback.
+    ready_cb.onmessage = (msg) => {
       try {
         let data = JSON.parse(msg.data);
         if (data.hasOwnProperty('type')) {
@@ -51,6 +58,9 @@ class Estimator extends fpgaServer {
       }
 
     }
+
+    // Create websocket.
+    this.connect(websocket_url, ready_cb);
   }
 
   // Send objects to the estimator.
