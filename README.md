@@ -18,7 +18,7 @@ The file `prediction.js` utilizes `estimator.js` to provide a simpler API for us
 
 # Connecting the Estimator Microservice
 
-You're [Estimator microservice(s)](https://www.estimatorlab.com) are controlled via your [Estimator Dashboard](https://www.estimatorlab.com). You're application must be connects to a microservice via a WebSocket. The URL for this WebSocket contains a access key that you can obtain via your [Estimator Dashboard](https://www.estimatorlab.com). The WebSocket URL containing your access key is a parameter of the Estimator and Promonition JavaScript classes.
+Your [Estimator microservice(s)](https://www.estimatorlab.com) are controlled via your [Estimator Dashboard](https://www.estimatorlab.com). You're application must be connects to a microservice via a WebSocket. The URL for this WebSocket contains a access key that you can obtain via your [Estimator Dashboard](https://www.estimatorlab.com). The WebSocket URL containing your access key is a parameter of the Estimator and Promonition JavaScript classes.
 
 ## Demos
 
