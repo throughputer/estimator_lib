@@ -22,6 +22,7 @@ This document specifies the interfaces provided to the ThroughPuter Estimator mi
   - **Non-training Object**: An Object presented to be estimated.
   - **Training/Incoming Value**: The correct characterization of a Training Object, presented to the Estimator along with the Training Object.
   - **Estimate**: The resulting characterization from the Estimator for an Object.
+  - **Estimate Value Range**: The range of values supported by the Estimator (depending on the specific hardware implementation). (The API supports 0..255, but the implementation may be more limited.)
   - **Numeric Object**: An Object for which the Training Values in the dataset are numeric.
   - **Labeled Object**: An Object for which the Training Values in the dataset are label strings.
   - **Probabilistic Object**: \[*Note that Probabilistic Objects are not supported in the current Estimator but can be [requested](mailto:tech@throughputer.com)*\] An Object for which to produce not just a single-value estimate, but several most-probable values with a Probability for each.
@@ -47,8 +48,8 @@ The section describes the communication from application to Estimator in general
 
 An Object sent to the Estimator contains the following fields (with given [bit-range] <value-range>):
 
-  - **Variables [7:0] <0-255>**: (up to the max supported by the kernel implementation – no more than 16)  
-  - **Training Value [7:0] <0-255>**
+  - **Variables [7:0] <0-255>** (up to the max supported by the kernel implementation)  
+  - **Training Value [7:0] <0-255>** (limited by the Estimator Value Range)
   - **Tag [31:0]**: An identifier for the object. The Estimator forms this tag by combining the following values:
     - **FirstObject [0:0] <0/1>**: A value of 1 resets the Estimator model.
     - **UID [7:0] <0-127>**: An identifier for the user (currently assigned by the client, but this may be assigned by the server in the future).
@@ -72,7 +73,7 @@ An Estimate returned from the Estimator to the application contains different fi
 \[*Note that Probabilistic Objects are not supported in the current Estimator but can be [requested](mailto:tech@throughputer.com)*\]
 
   - **Tag [31:0]**: Object’s tag, as sent
-  - **Values[2:0] <0-255>**: Top 3 predicted Label
+  - **Values[2:0] <0-255>**: Top 3 predicted Labels
   - **Numerators[2:0] <0-255>**: Numerator of the Probabilities
   - **Denominators[2:0] <0-255>**: Denominators of the Probabilities
 
