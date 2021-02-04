@@ -4,8 +4,7 @@
 
 ## Introduction
 
-The ThroughPuter Estimator is a hardware-accelerated machine-learning microservice capable of characterizing a changing environment in real time.
-It is sent a stream of data characterizing known objects or events and learns to classify unknown ones.
+The ThroughPuter Estimator is a hardware-accelerated machine-learning microservice capable of making classifications etc. predictions in a changing environment in real time. It is sent a stream of feature vectors characterizing known objects or events and learns to classify (or predict properties for) unknown ones.
 
 This document specifies the interfaces provided to the ThroughPuter Estimator microservice in various forms:
   - as a WebSocket-based microservice
