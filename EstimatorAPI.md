@@ -87,7 +87,7 @@ sends Objects to the Estimator via the WebSocket as JSON strings representing ob
 {
   “type”: “OBJECT”,
   “payload”: {
-    “vars”: [<0-255>, ...],
+    “vars”: [<0-255>, ...], // The Feature Vector.
     "train“: <0-255>, // (opt) Training data if this is a Training Object.
     "reset“: <0/1>, // (opt, default=0) A 1 value indicates a FirstObject to reset the Estimator models.
     "uid“: <0-127>,
