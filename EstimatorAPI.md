@@ -15,11 +15,11 @@ This document specifies the interfaces provided to the ThroughPuter Estimator mi
 
   - **Estimator**: The microservice making predictions/estimations.
   - **Estimator Model**: The state of the Estimator, characterizing the current environment.
-  - **Object**: The entity characterized by a set of values used to train the Estimator or for which to estimate.
-  - **Variable**: An attribute of an Object.
+  - **Object**: An entity used to train the Estimator Model or to be estimated by the Estimator, characterized by a set of values.
   - **Training Object**: An Object presented to train the Estimator.
   - **Non-training Object**: An Object presented to be estimated.
-  - **Training/Incoming Value**: The correct characterization of a Training Object, presented to the Estimator along with the Training Object.
+  - **Training Value**: The correct characterization of a Training Object, presented to the Estimator along with the Training Object.
+  - **Feature Vector**: A set of values characterizing an object, included with both Training and Non-Training Objects.
   - **Estimate**: The resulting characterization from the Estimator for an Object.
   - **Estimate Value Range**: The range of values supported by the Estimator (depending on the specific hardware implementation). (The API supports 0..255, but the implementation may be more limited.)
   - **Numeric Object**: An Object for which the Training Values in the dataset are numeric.
@@ -47,7 +47,7 @@ The section describes the communication from application to Estimator in general
 
 An Object sent to the Estimator contains the following fields (with given [bit-range] <value-range>):
 
-  - **Variables [7:0] <0-255>** (up to the max supported by the kernel implementation)  
+  - **Feature Vector [7:0] <0-255>** (up to the max supported by the kernel implementation)  
   - **Training Value [7:0] <0-255>** (limited by the Estimator Value Range)
   - **Tag [31:0]**: An identifier for the object. The Estimator forms this tag by combining the following values:
     - **FirstObject [0:0] <0/1>**: A value of 1 resets the Estimator model.
