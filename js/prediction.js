@@ -12,7 +12,7 @@ class Prediction extends Estimator {
   //   cb: Callback function for predictions returning from estimator with args:
   //         estimate: the predicted value (0-255)
   //         info: as passed to the send call
-  //   ready_cb: Callback for websocket ready.
+  //   ready_cb: (opt) Callback for websocket ready or set of callbacks as in fpgaServer constructor.
   constructor(depth, prob, websocket_url, cb, ready_cb) {
     super(websocket_url,
           function (estimates, info) {

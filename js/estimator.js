@@ -47,6 +47,7 @@ class Estimator extends fpgaServer {
             debugger;
           }
           let orig_obj = this.pendingObjects[obj_index];
+          // TODO: Looks like I forgot to this.pendingObjects[obj_index] = undefined (or similar).
           if (typeof orig_obj === "undefined") {
             console.log(`Estimator response Object (${obj_index}) is not pending.`);
             debugger;
@@ -60,7 +61,7 @@ class Estimator extends fpgaServer {
     }
 
     // Create websocket.
-    this.connect(websocket_url, ready_cb);
+    this.connectURL(websocket_url, ready_cb);
   }
 
   // Send objects to the estimator.
