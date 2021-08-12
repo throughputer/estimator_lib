@@ -19,7 +19,7 @@ This document specifies the interfaces provided to the ThroughPuter Estimator mi
   - **Training Object**: An Object presented to train the Estimator.
   - **Non-training Object**: An Object presented to be estimated.
   - **Training Value**: The correct classification (or other property prediction) of a Training Object, presented to the Estimator along with the Training Object. Training value encodings are independent of one another and are not necessarily an ordered set.
-  - **Feature Vector**: A set of values characterizing an object, included with both Training and Non-Training Objects.
+  - **Feature Vector** (FV): A set of (independent) predictor variable values characterizing an object, included with both Training and Non-Training Objects. Note that though in case of the provided model apps the FV variables are from a time series, there is no requirement that FV variables have any specific relation to each other. Instead, each FV variable can represent any property of the object, without any particular relation to the other variables in the FV. Consequently, the FV variables can be provided in any order, without impacting the Estimator prediction operation.
   - **Estimate**: The resulting classification (or other property prediction) as predicted by the Estimator for an Object based on the training. The Estimate value encodings are independent of one another and are not necessarily an ordered set.
   - **Estimate Value Range**: The range of values supported by the Estimator (depending on the specific hardware implementation). The API supports 0..255, but the present implementation is limited to 0..3.)
   - **Numeric Object**: An Object for which the Training Values in the dataset are numeric.
