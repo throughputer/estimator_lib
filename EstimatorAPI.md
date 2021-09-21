@@ -136,9 +136,9 @@ The file `estimator.js` provides the `Estimator` class for interfacing with the 
 `new Estimator(websocket_url, cb, ready_cb)`
 
   - `websocket_url`: The URL of the WebSocket of the Estimator microservice.
-  - `cb`: A callback for Estimates returned by `Estimator.sendObjects(..)` of the form cb(estimate, info), where:
+  - `cb`: A callback called when Estimates are returned as a result of `Estimator.sendObjects(..)`. cb has the form cb(estimate, info), where:
     - `estimate`: The Estimate response from the Estimator as a JavaScript object corresponding to the JSON `est` value returned by the WebSocket for Non-Probablistic Objects or the `ests` array value for Probablistic Objects.
-    - `info`: As provided in `sendObjects(..)`.
+    - `info`: As provided in `sendObjects(..)`, or null.
   - `ready_cb`: (opt) A callback for WebSocket.onopen, or an object of (optional) WebSocket callbacks of the form: `{onopen: function(), onclose: function(), onerror: function()}`.
 
 `Estimator.sendObjects(objects, info)`
