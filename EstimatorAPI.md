@@ -143,8 +143,8 @@ The file `estimator.js` provides the `Estimator` class for interfacing with the 
 
 `Estimator.sendObjects(objects, info)`
 
-  - `objects`: The Objects to send to the estimator, to be converted to JSON and passed to the microservice in the "payload" property.
-  - `info`: (opt) Additional information associated with the objects passed to callback.
+  - `objects`: An array of Objects to send to the Estimator microservice, to be converted to JSON and passed to the microservice in the `payload` property.
+  - `info`: (opt) Any additional information to be associated with the objects. This is passed, unchanged, to the callback (the `cb` argument of the Estimator constructor).
 
 
 ## JavaScript Prediction API
