@@ -18,7 +18,7 @@ This document specifies the interfaces provided to the ThroughPuter Estimator mi
   - **Object**: An entity used to train the Estimator Model or to be estimated by the Estimator, characterized by a set of values.
   - **Training Object**: An Object presented to train the Estimator.
   - **Non-training Object**: An Object presented to be estimated.
-  - **Training Value**: The correct classification (or other property prediction) of a Training Object, presented to the Estimator along with the Training Object. Training value encodings are independent of one another and are not necessarily an ordered set.
+  - **Training Label**: The correct classification (or other property prediction) of a Training Object, presented to the Estimator along with the Training Object. Training label encodings are independent of one another and are not necessarily an ordered set.
   - **Feature Vector** (FV): A set of (independent) predictor variable values characterizing an object, included with both Training and Non-Training Objects. Note that though in case of the provided model apps the FV variables are from a time series, there is no requirement that FV variables have any specific relation to each other. Instead, each FV variable can represent any property of the object, without any particular relation to the other variables in the FV. Consequently, the FV variables can be provided in any order, without impacting the Estimator prediction operation.
   - **Estimate**: The resulting classification (or other property prediction) as predicted by the Estimator for an Object based on the training. The Estimate value encodings are independent of one another and are not necessarily an ordered set.
   - **Estimate Value Range**: The range of values supported by the Estimator (depending on the specific hardware implementation). The API supports 0..255, but the present implementation is limited to 0..3.)
@@ -48,7 +48,7 @@ The section describes the communication from application to Estimator in general
 An Object sent to the Estimator contains the following fields (with given [bit-range] <value-range>):
 
   - **Feature Vector [3:0][7:0] <0-255>** (up to the max feature variable count supported by the kernel implementation, which is presently 4 (byte size) features; greater predictor variable counts can be [requested](mailto:tech@throughputer.com))  
-  - **Training Value [7:0] <0-255>** (limited by the Estimator Value Range)
+  - **Training Label [7:0] <0-255>** (limited by the Estimator Value Range)
   - **Tag [31:0]**: An identifier for the object. The Estimator forms this tag by combining the following values:
     - **FirstObject [0:0] <0/1>**: A value of 1 resets the Estimator model.
     - **UID [7:0] <0-127>**: An identifier for the user (currently assigned by the client, but this may be assigned by the server in the future).
