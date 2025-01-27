@@ -71,7 +71,9 @@ class Estimator extends fpgaServer {
       try {
         let data = JSON.parse(msg.data);
         if (data.hasOwnProperty('type')) {
-          console.log(`Received message: ${data.type}`);
+           if (typeof window != 'undefined' || data.type != "PING") {
+              console.log(`Received message: ${data.type}`);
+           }
         } else {
           // Response.
 
