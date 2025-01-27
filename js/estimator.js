@@ -172,3 +172,7 @@ class Estimator extends fpgaServer {
   }
 
 }
+// Support Node.js exports while keeping client-side compatibility.
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = Estimator;
+}
